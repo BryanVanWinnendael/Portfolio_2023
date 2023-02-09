@@ -1,11 +1,53 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Head from "next/head"
+import About from "@/components/about"
+import { useEffect } from "react"
+import { motion, useAnimation } from "framer-motion"
+import router from "next/router"
 
 export default function Home() {
+  const colorControl = useAnimation()
+  const textColorControl = useAnimation()
+
+  const setColor = () => {
+    if (window.scrollY >= 1) {
+      colorControl.start({
+        backgroundColor: "white",
+        transitionDuration: "0.5s",
+      })
+      textColorControl.start({
+        color: "black",
+        transitionDuration: "0.5s",
+      })
+    } else {
+      colorControl.start({
+        backgroundColor: "black",
+        transitionDuration: "0.5s",
+      })
+      textColorControl.start({
+        color: "white",
+        transitionDuration: "0.5s",
+      })
+    }
+  }
+
+  const removeEventListener = () => {
+    window.removeEventListener("scroll", setColor)
+  }
+
+  useEffect(() => {
+    colorControl.start({
+      backgroundColor: "black",
+      transitionDuration: "0.5s",
+    })
+    textColorControl.start({
+      color: "white",
+      transitionDuration: "0.5s",
+    })
+    window.addEventListener("scroll", setColor)
+    router.events.on("routeChangeStart", removeEventListener)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
       <Head>
@@ -14,110 +56,61 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+      <motion.div animate={colorControl}>
+        <div className="h-screen text-white sm:p-10 p-4 w-full">
+          <section className="text-gray-500 font-semibold text-lg mb-5">
+            <p>My portfolio</p>
+            <p>2023</p>
+          </section>
+          <section>
+            <motion.h1
+              animate={textColorControl}
+              className="md:text-7xl sm:text-6xl text-4xl font-bold"
             >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
+              FULL STACK
+            </motion.h1>
+            <motion.h1
+              animate={textColorControl}
+              className="md:text-7xl sm:text-6xl text-4xl font-bold"
+            >
+              DEVELOPER
+            </motion.h1>
+            <motion.h1
+              animate={textColorControl}
+              className="md:text-9xl sm:text-8xl text-5xl font-bold"
+            >
+              BRYAN VAN
+            </motion.h1>
+            <motion.h1
+              animate={textColorControl}
+              className="md:text-9xl sm:text-8xl text-5xl font-bold"
+            >
+              WINNENDAEL
+            </motion.h1>
+          </section>
+          <section className="flex text-2xl gap-12 mt-5">
+            <div>
+              <p className="text-gray-500">Location</p>
+              <motion.p
+                animate={textColorControl}
+                className="md:text-4xl sm:text-3xl text-2xl font-semibold"
+              >
+                Belgium
+              </motion.p>
+            </div>
+            <div>
+              <p className="text-gray-500">Degree</p>
+              <motion.p
+                animate={textColorControl}
+                className="md:text-4xl sm:text-3xl text-2xl font-semibold"
+              >
+                Applied Computer Science
+              </motion.p>
+            </div>
+          </section>
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+        <About />
+      </motion.div>
     </>
   )
 }
