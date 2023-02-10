@@ -3,7 +3,6 @@ import { mailOptions, transporter } from "../../config/nodemailer"
 const CONTACT_MESSAGE_FIELDS: any = {
   name: "Name",
   email: "Email",
-  subject: "Subject",
   message: "Message",
 }
 
@@ -84,23 +83,24 @@ const handler = async (
     }
 
     try {
-      await transporter.sendMail({
-        ...mailOptions,
-        ...generateEmailContent(data),
-        subject: data.subject,
-      })
-
-      mailOptions.to = data.email
-
-      await transporter.sendMail({
-        ...mailOptions,
-        ...GenerateEmailBack(),
-        subject: "Contact - Portfolio Bryan Van Winnendael ",
-      })
+      await transporter
+        // email to myself
+        .sendMail({
+          ...mailOptions,
+          ...generateEmailContent(data),
+          subject: "Portfolio - Contact received",
+        })
+        .then(async () => {
+          mailOptions.to = data.email
+          await transporter.sendMail({
+            ...mailOptions,
+            ...GenerateEmailBack(),
+            subject: "Contact - Portfolio Bryan Van Winnendael",
+          })
+        })
 
       return res.status(200).json({ success: true })
     } catch (err: any) {
-      console.log(err)
       return res.status(400).json({ message: err.message })
     }
   }

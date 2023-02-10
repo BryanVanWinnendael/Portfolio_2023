@@ -1,16 +1,21 @@
 import { useState } from "react"
 import { sendContactForm } from "@/lib/api"
-const initValues = { name: "", email: "", subject: "Contact", message: "" }
-const initState = { isLoading: false, error: "", values: initValues }
+import Toast from "@/components/toast"
+import { AnimatePresence } from "framer-motion"
+
+const initValues = { name: "", email: "", message: "" }
+const initState = {
+  isLoading: false,
+  error: "",
+  values: initValues,
+}
 
 const Contact = () => {
   const [state, setState] = useState(initState)
-  const [touched, setTouched] = useState({})
-
   const { values, isLoading, error } = state
+  const [success, setSuccess] = useState(false)
 
-  const onBlur = ({ target }: any) =>
-    setTouched((prev) => ({ ...prev, [target.name]: true }))
+  const handleCloseToast = () => setSuccess(false)
 
   const handleChange = ({ target }: any) =>
     setState((prev) => ({
@@ -24,14 +29,14 @@ const Contact = () => {
   const onSubmit = async () => {
     setState((prev) => ({
       ...prev,
+      error: "",
       isLoading: true,
     }))
     try {
       await sendContactForm(values)
-      setTouched({})
       setState(initState)
+      setSuccess(true)
     } catch (error: any) {
-      console.log(error)
       setState((prev) => ({
         ...prev,
         isLoading: false,
@@ -42,10 +47,29 @@ const Contact = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-start bg-white p-5">
+      {isLoading && (
+        <div className="bg-black fixed inset-0 w-full h-full z-50 opacity-80">
+          <div className="flex items-center justify-center min-h-screen">
+            <div className="w-8 h-8 border-4 border-white rounded-full animate-spin border-t-transparent"></div>
+            <p className="ml-2 text-white text-xl font-semibold">
+              Sending mail...
+            </p>
+          </div>
+        </div>
+      )}
+      <AnimatePresence>
+        {success && <Toast handleClose={handleCloseToast} />}
+      </AnimatePresence>
+
       <div className="mx-auto w-full max-w-lg">
-        <h1 className="md:text-9xl sm:text-8xl text-5xl font-medium">
-          Contact me
+        <h1 className="md:text-7xl sm:text-6xl text-3xl font-medium">
+          QUESTIONS?
         </h1>
+        <h1 className="md:text-9xl sm:text-8xl text-5xl font-medium">
+          CONTACT ME
+        </h1>
+
+        {error && <p className="text-xl font-semibold text-red-600">{error}</p>}
 
         <div className="mt-10">
           <div className="grid gap-6 sm:grid-cols-2">
@@ -57,7 +81,6 @@ const Contact = () => {
                 placeholder=" "
                 value={values.name}
                 onChange={handleChange}
-                onBlur={onBlur}
               />
               <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
                 Your name
@@ -71,7 +94,6 @@ const Contact = () => {
                 placeholder=" "
                 value={values.email}
                 onChange={handleChange}
-                onBlur={onBlur}
               />
               <label className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500">
                 Your email
@@ -81,7 +103,6 @@ const Contact = () => {
               <textarea
                 value={values.message}
                 onChange={handleChange}
-                onBlur={onBlur}
                 name="message"
                 rows={5}
                 className="peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0"
@@ -94,6 +115,7 @@ const Contact = () => {
           </div>
           <button
             onClick={onSubmit}
+            disabled={isLoading}
             className="mt-5 rounded-md bg-black px-10 py-2 text-white"
           >
             Send Message

@@ -1,7 +1,6 @@
 export const sendContactForm = async (data: {
   name: string
   email: string
-  subject: string
   message: string
 }) =>
   fetch("/api/contact", {

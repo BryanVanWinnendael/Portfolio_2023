@@ -12,7 +12,7 @@ import { IoCloseOutline } from "react-icons/io5"
 const Projects = () => {
   const textColorControl = useAnimation()
   const gridControl = useAnimation()
-  const [cover, setCover] = useState(true)
+  const [cover, setCover] = useState(false)
 
   const setText = () => {
     if (window.scrollY >= 10) {
@@ -70,6 +70,7 @@ const Projects = () => {
       scale: 0.9,
       filter: "brightness(0.4)",
     })
+    console.log("mounted")
     window.addEventListener("scroll", setText)
     router.events.on("routeChangeStart", removeEventListener)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -83,13 +84,13 @@ const Projects = () => {
           <IoCloseOutline className="fixed top-5 left-5 text-white cursor-pointer z-[60] h-10 w-10" />
         </>
       )}
-      <motion.p
+      <motion.div
         animate={textColorControl}
         className="p-10 text-white md:text-6xl sm:text-5xl text-4xl font-semibold"
       >
         <p>Here are all of my projects I made.</p>
         <p>These are made in my spare time or for my education.</p>
-      </motion.p>
+      </motion.div>
       <motion.div
         animate={gridControl}
         className="bg-black sm:grid flex flex-col grid-cols-3 grid-rows-3 gap-x-12 gap-y-12 p-10 justify-center"
