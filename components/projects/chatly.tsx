@@ -30,11 +30,11 @@ const Chatly = ({ showProject, setShowProject }: any) => {
             </p>
             <p className="text-4xl mt-2 font-bold">Chatly</p>
             <hr className="h-[1px] mt-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
-            <p className="mt-2 d">
+            <p className="mt-2">
               Chatly is an online website that allows you to chat with people
               from around the world.
             </p>
-            <p className="mt-2 d">
+            <p className="mt-2">
               Chatly is made with nextjs, agora, supabase and tailwind.
             </p>
             <hr className="h-[1px] my-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
