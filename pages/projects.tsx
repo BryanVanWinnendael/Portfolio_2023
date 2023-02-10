@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import router from "next/router"
 import { IoCloseOutline } from "react-icons/io5"
+import Head from "next/head"
 
 const Projects = () => {
   const textColorControl = useAnimation()
@@ -70,52 +71,56 @@ const Projects = () => {
       scale: 0.9,
       filter: "brightness(0.4)",
     })
-    console.log("mounted")
     window.addEventListener("scroll", setText)
     router.events.on("routeChangeStart", removeEventListener)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
-    <div className="w-full h-full bg-black">
-      {cover && (
-        <>
-          <div className="fixed inset-0 h-full w-full z-50 bg-black opacity-80"></div>
-          <IoCloseOutline className="fixed top-5 left-5 text-white cursor-pointer z-[60] h-10 w-10" />
-        </>
-      )}
-      <motion.div
-        animate={textColorControl}
-        className="p-10 text-white md:text-6xl sm:text-5xl text-4xl font-semibold"
-      >
-        <p>Here are all of my projects I made.</p>
-        <p>These are made in my spare time or for my education.</p>
-      </motion.div>
-      <motion.div
-        animate={gridControl}
-        className="bg-black sm:grid flex flex-col grid-cols-3 grid-rows-3 gap-x-12 gap-y-12 p-10 justify-center"
-      >
-        <div className="row-start-1 col-start-1">
-          <ProjectCard setCover={setCover} project="Chatly" img={chatlyImg} />
-        </div>
-        <div className="row-start-1 col-start-2">
-          <ProjectCard setCover={setCover} project="Noted" img={notedImg} />
-        </div>
-        <div className="row-start-1 col-start-3">
-          <ProjectCard
-            setCover={setCover}
-            project="TwitterClone"
-            img={twitterImg}
-          />
-        </div>
-        <div className="row-start-2 col-start-1">
-          <ProjectCard setCover={setCover} project="Clne" img={clneImg} />
-        </div>
-        <div className="row-start-2 col-start-2 row-span-2">
-          <ProjectCard setCover={setCover} project="Todo" img={todoImg} />
-        </div>
-      </motion.div>
-    </div>
+    <>
+      <Head>
+        <title>Projects / Bryan Van Winnendael</title>
+      </Head>
+      <div className="w-full h-full bg-black">
+        {cover && (
+          <>
+            <div className="fixed inset-0 h-full w-full z-50 bg-black opacity-80"></div>
+            <IoCloseOutline className="fixed top-5 left-5 text-white cursor-pointer z-[60] h-10 w-10" />
+          </>
+        )}
+        <motion.div
+          animate={textColorControl}
+          className="p-10 text-white md:text-6xl sm:text-5xl text-4xl font-semibold"
+        >
+          <p>Here are all of my projects I made.</p>
+          <p>These are made in my spare time or for my education.</p>
+        </motion.div>
+        <motion.div
+          animate={gridControl}
+          className="bg-black sm:grid flex flex-col grid-cols-3 grid-rows-3 gap-x-12 gap-y-12 p-10 justify-center"
+        >
+          <div className="row-start-1 col-start-1">
+            <ProjectCard setCover={setCover} project="Chatly" img={chatlyImg} />
+          </div>
+          <div className="row-start-1 col-start-2">
+            <ProjectCard setCover={setCover} project="Noted" img={notedImg} />
+          </div>
+          <div className="row-start-1 col-start-3">
+            <ProjectCard
+              setCover={setCover}
+              project="TwitterClone"
+              img={twitterImg}
+            />
+          </div>
+          <div className="row-start-2 col-start-1">
+            <ProjectCard setCover={setCover} project="Clne" img={clneImg} />
+          </div>
+          <div className="row-start-2 col-start-2 row-span-2">
+            <ProjectCard setCover={setCover} project="Todo" img={todoImg} />
+          </div>
+        </motion.div>
+      </div>
+    </>
   )
 }
 
