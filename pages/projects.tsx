@@ -5,7 +5,7 @@ import notedImg from "@/public/noted.jpg"
 import clneImg from "@/public/clne.jpg"
 import todoImg from "@/public/todo.jpg"
 import { useEffect, useState } from "react"
-import { AnimatePresence, motion, useAnimation } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
 import router from "next/router"
 import { IoCloseOutline } from "react-icons/io5"
 

@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
-import router from "next/router"
 
 const Navbar = () => {
   const [visible, setVisible] = useState(true)

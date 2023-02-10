@@ -4,7 +4,6 @@ import TwitterImg2 from "@/public/twitter_home.jpg"
 import TwitterImg3 from "@/public/twitter_dark.jpg"
 import TwitterImg4 from "@/public/twitter_comments.jpg"
 import TwitterImg5 from "@/public/twitter_following.jpg"
-
 import Image from "next/image"
 import { IoIosArrowForward } from "react-icons/io"
 import { motion } from "framer-motion"
@@ -29,7 +28,7 @@ const TwitterClone = ({ showProject, setShowProject }: any) => {
             alt="TwitterClone"
             className="w-full h-96 object-cover object-center"
           />
-          <div className="mx-20 mt-12">
+          <div className="md:mx-20 mx-12 mt-12">
             <p className="text-lg text-[#888] font-semibold">
               Website and Social media
             </p>

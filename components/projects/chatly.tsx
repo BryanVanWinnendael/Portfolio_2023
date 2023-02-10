@@ -24,7 +24,7 @@ const Chatly = ({ showProject, setShowProject }: any) => {
             alt="Chatly"
             className="w-full h-96 object-cover object-center"
           />
-          <div className="mx-20 mt-12">
+          <div className="md:mx-20 mx-12 mt-12">
             <p className="text-lg text-[#888] font-semibold">
               Website and Video Chat
             </p>

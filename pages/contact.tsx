@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { sendContactForm } from "@/lib/api"
 const initValues = { name: "", email: "", subject: "Contact", message: "" }
 const initState = { isLoading: false, error: "", values: initValues }
