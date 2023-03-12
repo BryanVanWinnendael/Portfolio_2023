@@ -1,32 +1,35 @@
 import Head from "next/head"
 import About from "@/components/about"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import router from "next/router"
 
 export default function Home() {
   const colorControl = useAnimation()
   const textColorControl = useAnimation()
+  const [mounted, setMounted] = useState(false)
 
   const setColor = () => {
-    if (window.scrollY >= 1) {
-      colorControl.start({
-        backgroundColor: "white",
-        transitionDuration: "0.5s",
-      })
-      textColorControl.start({
-        color: "black",
-        transitionDuration: "0.5s",
-      })
-    } else {
-      colorControl.start({
-        backgroundColor: "black",
-        transitionDuration: "0.5s",
-      })
-      textColorControl.start({
-        color: "white",
-        transitionDuration: "0.5s",
-      })
+    if (mounted) {
+      if (window.scrollY >= 1) {
+        colorControl.start({
+          backgroundColor: "white",
+          transitionDuration: "0.5s",
+        })
+        textColorControl.start({
+          color: "black",
+          transitionDuration: "0.5s",
+        })
+      } else {
+        colorControl.start({
+          backgroundColor: "#0e0e0e",
+          transitionDuration: "0.5s",
+        })
+        textColorControl.start({
+          color: "white",
+          transitionDuration: "0.5s",
+        })
+      }
     }
   }
 
@@ -35,8 +38,10 @@ export default function Home() {
   }
 
   useEffect(() => {
+    document.body.style.overflow = "visible"
+    setMounted(true)
     colorControl.start({
-      backgroundColor: "black",
+      backgroundColor: "#0e0e0e",
       transitionDuration: "0.5s",
     })
     textColorControl.start({
@@ -46,7 +51,7 @@ export default function Home() {
     window.addEventListener("scroll", setColor)
     router.events.on("routeChangeStart", removeEventListener)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [mounted])
 
   return (
     <>
@@ -57,7 +62,7 @@ export default function Home() {
         <title>Home / Bryan Van Winnendael</title>
       </Head>
       <motion.div animate={colorControl}>
-        <div className="h-screen text-white sm:p-10 p-4 w-full">
+        <div className="h-screen text-white  p-10 w-full">
           <section className="text-gray-500 font-semibold text-lg mb-5">
             <p>My portfolio</p>
             <p>2023</p>

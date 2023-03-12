@@ -25,13 +25,16 @@ const TwitterClone = ({ showProject, setShowProject }: any) => {
         >
           <Image
             src={TwitterImg}
-            alt="TwitterClone"
+            alt="TwitterClone image"
             className="w-full h-96 object-cover object-center"
           />
           <div className="md:mx-20 mx-12 mt-12">
-            <p className="text-lg text-[#888] font-semibold">
-              Website and Social media
-            </p>
+            <div className="flex justify-between">
+              <p className="text-lg text-[#888] font-semibold">
+                Website and Social media
+              </p>
+              <p className="text-lg text-[#888] font-semibold">March 2022</p>
+            </div>
             <p className="text-4xl mt-2 font-bold">TwitterClone</p>
             <hr className="h-[1px] mt-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
             <p className="mt-2">
@@ -46,14 +49,14 @@ const TwitterClone = ({ showProject, setShowProject }: any) => {
               <p className="text-base text-[#888] font-semibold">Light mode</p>
               <Image
                 src={TwitterImg2}
-                alt="TwitterImg2"
+                alt="TwitterClone image 2"
                 className="w-full h-96 object-cover object-center"
               />
               <hr className="h-[1px] my-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
               <p className="text-base text-[#888] font-semibold">Dark mode</p>
               <Image
                 src={TwitterImg3}
-                alt="TwitterImg3"
+                alt="TwitterClone image 3"
                 className="w-full h-96 object-cover object-center"
               />
               <hr className="h-[1px] my-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
@@ -62,7 +65,7 @@ const TwitterClone = ({ showProject, setShowProject }: any) => {
               </p>
               <Image
                 src={TwitterImg4}
-                alt="TwitterImg4"
+                alt="TwitterClone image 4"
                 className="w-full h-96 object-cover object-center"
               />
               <hr className="h-[1px] my-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
@@ -71,7 +74,7 @@ const TwitterClone = ({ showProject, setShowProject }: any) => {
               </p>
               <Image
                 src={TwitterImg5}
-                alt="TwitterImg5"
+                alt="TwitterClone image 5"
                 className="w-full h-96 object-cover object-center"
               />
             </div>

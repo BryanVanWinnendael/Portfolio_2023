@@ -21,13 +21,16 @@ const Clne = ({ showProject, setShowProject }: any) => {
         >
           <Image
             src={ClneImg}
-            alt="Chatly"
+            alt="Clne image"
             className="w-full h-96 object-cover object-center"
           />
           <div className="md:mx-20 mx-12 mt-12">
-            <p className="text-lg text-[#888] font-semibold">
-              Website and Social media
-            </p>
+            <div className="flex justify-between">
+              <p className="text-lg text-[#888] font-semibold">
+                Website and Social Media
+              </p>
+              <p className="text-lg text-[#888] font-semibold">November 2021</p>
+            </div>
             <p className="text-4xl mt-2 font-bold">Clne</p>
             <hr className="h-[1px] mt-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
             <p className="mt-2">

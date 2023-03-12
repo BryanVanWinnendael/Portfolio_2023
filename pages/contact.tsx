@@ -3,6 +3,8 @@ import { sendContactForm } from "@/lib/api"
 import Toast from "@/components/toast"
 import { AnimatePresence } from "framer-motion"
 import Head from "next/head"
+import { FaLinkedin, FaGithubSquare } from "react-icons/fa"
+import Link from "next/link"
 
 const initValues = { name: "", email: "", message: "" }
 const initState = {
@@ -74,11 +76,10 @@ const Contact = () => {
             CONTACT ME
           </h1>
 
-          {error && (
-            <p className="text-xl font-semibold text-red-600">{error}</p>
-          )}
-
-          <div className="mt-10">
+          <div className="mt-5">
+            {error && (
+              <p className="text-xl font-semibold text-red-600">{error}</p>
+            )}
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="relative z-0">
                 <input
@@ -127,6 +128,25 @@ const Contact = () => {
             >
               Send Message
             </button>
+          </div>
+          <div className="mt-10">
+            <p className="text-xl font-semibold mb-1">Find me online:</p>
+            <div>
+              <Link
+                href="https://github.com/BryanVanWinnendael"
+                passHref={true}
+                target="_blank"
+              >
+                <FaGithubSquare className="inline-block text-3xl mr-2 cursor-pointer" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/bryanvanwinnendael/"
+                passHref={true}
+                target="_blank"
+              >
+                <FaLinkedin className="inline-block text-3xl mr-2 cursor-pointer" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

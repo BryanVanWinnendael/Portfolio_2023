@@ -25,10 +25,13 @@ const Chatly = ({ showProject, setShowProject }: any) => {
             className="w-full h-96 object-cover object-center"
           />
           <div className="md:mx-20 mx-12 mt-12">
-            <p className="text-lg text-[#888] font-semibold">
-              Website and Video Chat
-            </p>
-            <p className="text-4xl mt-2 font-bold">Chatly</p>
+            <div className="flex justify-between">
+              <p className="text-lg text-[#888] font-semibold">
+                Website and Video Chat
+              </p>
+              <p className="text-lg text-[#888] font-semibold">January 2023</p>
+            </div>
+            <p className="text-4xl font-bold">Chatly</p>
             <hr className="h-[1px] mt-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
             <p className="mt-2">
               Chatly is an online website that allows you to chat with people

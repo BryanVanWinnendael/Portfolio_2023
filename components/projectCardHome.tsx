@@ -1,15 +1,17 @@
-import Chatly from "./projects/chatly"
-import Noted from "./projects/noted"
-import TwitterClone from "./projects/twitterClone"
 import { useState } from "react"
 import { IoCloseOutline } from "react-icons/io5"
+import ShowProject from "./showProject"
 
 const ProjectCardHome = ({
   title,
   content,
+  date,
+  tags,
 }: {
   title: string
   content: string
+  date: string
+  tags: string
 }) => {
   const [showProject, setShowProject] = useState("")
 
@@ -22,7 +24,9 @@ const ProjectCardHome = ({
         </>
       )}
       <div className="m-5 w-full">
-        <p className="text-4xl mb-9 font-bold">{title}</p>
+        <p className="text-gray-400">{date}</p>
+        <p className="text-4xl font-bold">{title}</p>
+        <p className="mb-9 text-gray-400">{tags}</p>
         <p className="mb-9 text-2xl">{content}</p>
         <p
           className="text-lg underline font-sans cursor-pointer"
@@ -32,22 +36,7 @@ const ProjectCardHome = ({
         </p>
         <hr className="mb-9 mt-9 h-0 text-gray-500 bg-gray-500" />
       </div>
-      {
-        {
-          Chatly: (
-            <Chatly setShowProject={setShowProject} showProject={showProject} />
-          ),
-          Noted: (
-            <Noted setShowProject={setShowProject} showProject={showProject} />
-          ),
-          TwitterClone: (
-            <TwitterClone
-              setShowProject={setShowProject}
-              showProject={showProject}
-            />
-          ),
-        }[showProject]
-      }
+      <ShowProject showProject={showProject} setShowProject={setShowProject} />
     </>
   )
 }

@@ -35,7 +35,7 @@ const GenerateEmailBack = () => {
             .footer{
                 text-align: center;
                 margin-top: 50px;
-                background-color: black;
+                background-color: #0e0e0e;
                 color: white;
                 width: 100%;
                 height: fit-content !important;

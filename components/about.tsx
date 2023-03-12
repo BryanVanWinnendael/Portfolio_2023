@@ -35,8 +35,7 @@ const About = () => {
             challenges.
           </p>
           <p>
-            On this site you can find some of my projects and all of my skills I
-            know.
+            On this site you can find some of my projects that I&apos;ve made.
           </p>
         </article>
       </section>
@@ -52,15 +51,21 @@ const About = () => {
         </div>
         <article className="flex flex-col items-center sm:w-1/2">
           <ProjectCardHome
-            title="Chatly"
-            content="Chatly is an online website that allows you to chat with people from around the world."
+            title="Point Cloud Processor"
+            date="March 2023"
+            tags="AI, Desktop Application and Point Cloud"
+            content="With Point Cloud Processor you can process point clouds. You segment and classify them."
           />
           <ProjectCardHome
             title="Noted"
+            date="June 2022"
+            tags="Desktop Application"
             content="Noted is desktop application that allows you to write markdown files and preview them in real time."
           />
           <ProjectCardHome
             title="TwitterClone"
+            date="March 2022"
+            tags="Website and Social media"
             content="TwitterClone, like twitter, is a social media platform. Make a post, comment and like a post and follow other users. Or create an api-key and use the api."
           />
           <Link href="/projects" className="m-5 underline">

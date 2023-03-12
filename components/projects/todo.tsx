@@ -4,12 +4,12 @@ import Image from "next/image"
 import { IoIosArrowForward } from "react-icons/io"
 import { motion } from "framer-motion"
 
-const Todo = ({ showProject, setShowProject }: any) => {
+const ToDo = ({ showProject, setShowProject }: any) => {
   return (
     <Dialog
       as="div"
       className="fixed inset-0 w-full h-full my-5 flex justify-center z-50 overflow-y-auto rounded-sm"
-      open={showProject === "Todo"}
+      open={showProject === "ToDo"}
       onClose={() => setShowProject("")}
     >
       <Dialog.Panel className="md:w-1/2 md:p-0 p-5">
@@ -21,12 +21,17 @@ const Todo = ({ showProject, setShowProject }: any) => {
         >
           <Image
             src={TodoImg}
-            alt="Chatly"
+            alt="ToDo image"
             className="w-full h-96 object-cover object-center"
           />
           <div className="md:mx-20 mx-12 mt-12">
-            <p className="text-lg text-[#888] font-semibold">Website and PWA</p>
-            <p className="text-4xl mt-2 font-bold">Todo</p>
+            <div className="flex justify-between">
+              <p className="text-lg text-[#888] font-semibold">
+                Website and PWA
+              </p>
+              <p className="text-lg text-[#888] font-semibold">October 2021</p>
+            </div>
+            <p className="text-4xl mt-2 font-bold">ToDo</p>
             <hr className="h-[1px] mt-3 text-[#494a4d] bg-[#494a4d] border-t-0" />
             <p className="mt-2">
               With ToDo you can create tasks that you need to complete and keep
@@ -78,4 +83,4 @@ const Todo = ({ showProject, setShowProject }: any) => {
   )
 }
 
-export default Todo
+export default ToDo

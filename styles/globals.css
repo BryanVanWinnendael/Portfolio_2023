@@ -21,7 +21,8 @@
 html,
 body {
   font-family: "Gilroy";
-  background-color: white;
+  background-color: #0e0e0e;
+  overflow-x: hidden;
 }
 
 p {

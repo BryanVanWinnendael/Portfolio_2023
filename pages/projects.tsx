@@ -4,6 +4,7 @@ import chatlyImg from "@/public/chatly.jpg"
 import notedImg from "@/public/noted.jpg"
 import clneImg from "@/public/clne.jpg"
 import todoImg from "@/public/todo.jpg"
+import droneImg from "@/public/drone.jpg"
 import { useEffect, useState } from "react"
 import { motion, useAnimation } from "framer-motion"
 import router from "next/router"
@@ -56,7 +57,7 @@ const Projects = () => {
   }
 
   useEffect(() => {
-    document.body.style.backgroundColor = "black"
+    document.body.style.backgroundColor = "#0e0e0e"
     return () => {
       document.body.style.backgroundColor = "white"
     }
@@ -64,6 +65,7 @@ const Projects = () => {
   }, [])
 
   useEffect(() => {
+    console.log("mounted")
     textColorControl.start({
       opacity: 100,
     })
@@ -81,10 +83,10 @@ const Projects = () => {
       <Head>
         <title>Projects / Bryan Van Winnendael</title>
       </Head>
-      <div className="w-full h-full bg-black">
+      <div className="w-full h-full bg-[#0e0e0e]">
         {cover && (
           <>
-            <div className="fixed inset-0 h-full w-full z-50 bg-black opacity-80"></div>
+            <div className="fixed inset-0 h-full w-full z-50 bg-[#0e0e0e] opacity-80"></div>
             <IoCloseOutline className="fixed top-5 left-5 text-white cursor-pointer z-[60] h-10 w-10" />
           </>
         )}
@@ -92,31 +94,38 @@ const Projects = () => {
           animate={textColorControl}
           className="p-10 text-white md:text-6xl sm:text-5xl text-4xl font-semibold"
         >
-          <p>Here are all of my projects I made.</p>
+          <p>Here are some of my projects I made.</p>
           <p>These are made in my spare time or for my education.</p>
         </motion.div>
         <motion.div
           animate={gridControl}
-          className="bg-black sm:grid flex flex-col grid-cols-3 grid-rows-3 gap-x-12 gap-y-12 p-10 justify-center"
+          className="sm:grid flex flex-col grid-cols-3 grid-rows-3 gap-x-12 gap-y-12 p-10 justify-center"
         >
           <div className="row-start-1 col-start-1">
-            <ProjectCard setCover={setCover} project="Chatly" img={chatlyImg} />
+            <ProjectCard
+              setCover={setCover}
+              project="Point Cloud Processor"
+              img={droneImg}
+            />
           </div>
           <div className="row-start-1 col-start-2">
-            <ProjectCard setCover={setCover} project="Noted" img={notedImg} />
+            <ProjectCard setCover={setCover} project="Chatly" img={chatlyImg} />
           </div>
           <div className="row-start-1 col-start-3">
+            <ProjectCard setCover={setCover} project="Noted" img={notedImg} />
+          </div>
+          <div className="row-span-1 col-start-1">
             <ProjectCard
               setCover={setCover}
               project="TwitterClone"
               img={twitterImg}
             />
           </div>
-          <div className="row-start-2 col-start-1">
+          <div className="row-start-2 col-start-2">
             <ProjectCard setCover={setCover} project="Clne" img={clneImg} />
           </div>
-          <div className="row-start-2 col-start-2 row-span-2">
-            <ProjectCard setCover={setCover} project="Todo" img={todoImg} />
+          <div className="row-start-2 col-start-3 row-span-2">
+            <ProjectCard setCover={setCover} project="ToDo" img={todoImg} />
           </div>
         </motion.div>
       </div>
