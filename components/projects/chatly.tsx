@@ -4,7 +4,13 @@ import Image from "next/image"
 import { IoIosArrowForward } from "react-icons/io"
 import { motion } from "framer-motion"
 
-const Chatly = ({ showProject, setShowProject }: any) => {
+const Chatly = ({
+  showProject,
+  setShowProject,
+}: {
+  showProject: string
+  setShowProject: (arg: string) => void
+}) => {
   return (
     <Dialog
       as="div"
@@ -21,7 +27,7 @@ const Chatly = ({ showProject, setShowProject }: any) => {
         >
           <Image
             src={ChatlyImg}
-            alt="Chatly"
+            alt="Chatly image"
             className="w-full h-96 object-cover object-center"
           />
           <div className="md:mx-20 mx-12 mt-12">
