@@ -62,7 +62,7 @@ export default function Home() {
         <title>Home / Bryan Van Winnendael</title>
       </Head>
       <motion.div animate={colorControl}>
-        <div className="h-screen text-white  p-10 w-full">
+        <div className="h-screen text-white sm:p-10 p-5 w-full">
           <section className="text-gray-500 font-semibold text-lg mb-5">
             <p>My portfolio</p>
             <p>2023</p>

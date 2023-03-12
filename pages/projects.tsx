@@ -92,7 +92,7 @@ const Projects = () => {
         )}
         <motion.div
           animate={textColorControl}
-          className="p-10 text-white md:text-6xl sm:text-5xl text-4xl font-semibold"
+          className="sm:p-10 p-5 text-white md:text-6xl sm:text-5xl text-4xl font-semibold"
         >
           <p>Here are some of my projects I made.</p>
           <p>These are made in my spare time or for my education.</p>

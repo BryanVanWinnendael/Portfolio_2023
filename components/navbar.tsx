@@ -42,7 +42,7 @@ const Navbar = () => {
     >
       <Link
         href="/"
-        className="py-4 w-full ml-10 flex items-center cursor-pointer"
+        className="py-4 w-full sm:ml-10 ml-5 flex items-center cursor-pointer"
       >
         <Image src={iconImage} alt="icon" width={30} height={30} />
         <h1 className="ml-1 text-xl">My Portfolio</h1>

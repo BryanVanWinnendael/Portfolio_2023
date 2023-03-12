@@ -94,7 +94,7 @@ const Loading = ({ setLoading }: { setLoading: (value: boolean) => void }) => {
   }, [done])
 
   return (
-    <div className="w-screen h-screen bg-white text-white flex justify-center items-center -ml-1">
+    <div className="w-screen h-screen bg-white text-white flex justify-center items-center">
       <motion.div
         animate={divControler}
         className=" bg-[#0e0e0e] z-10 h-24 w-24 rounded-full flex justify-center items-center"
@@ -108,7 +108,7 @@ const Loading = ({ setLoading }: { setLoading: (value: boolean) => void }) => {
       </motion.div>
       <motion.div
         animate={visibleController}
-        className="absolute opacity-0 h-screen  text-white sm:p-10 p-4 w-full z-20"
+        className="absolute opacity-0 h-screen text-white sm:p-10 p-5 w-full z-20"
       >
         <motion.section
           animate={colorController}

@@ -53,7 +53,7 @@ const Contact = () => {
       <Head>
         <title>Contact / Bryan Van Winnendael</title>
       </Head>
-      <div className="flex min-h-screen items-center justify-start bg-white p-5">
+      <div className="flex min-h-screen items-center justify-start bg-white sm:p-10 p-5">
         {isLoading && (
           <div className="bg-black fixed inset-0 w-full h-full z-50 opacity-80">
             <div className="flex items-center justify-center min-h-screen">
