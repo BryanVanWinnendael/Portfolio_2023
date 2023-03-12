@@ -95,24 +95,6 @@ const Loading = ({ setLoading }: { setLoading: (value: boolean) => void }) => {
 
   return (
     <div className="w-screen h-screen bg-white text-white flex justify-center items-center -ml-1">
-      <Head>
-        <link
-          rel="preload"
-          href="/_next/static/chunks/pages/projects.js"
-          as="script"
-        />
-        <link
-          rel="preload"
-          href="/_next/static/chunks/pages/contact.js"
-          as="script"
-        />
-        <link
-          rel="preload"
-          href="/_next/static/development/_devPagesManifest.json"
-          as="fetch"
-          crossOrigin="anonymous"
-        />
-      </Head>
       <motion.div
         animate={divControler}
         className=" bg-[#0e0e0e] z-10 h-24 w-24 rounded-full flex justify-center items-center"
